@@ -1,9 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import LoginPage from "./components/LoginPage";
 
 function App() {
   return (
     <>
-      <div></div>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="mainscreen/*"></Route>
+      </Routes>
     </>
   );
 }
