@@ -1,7 +1,11 @@
 import "./App.css";
 
 function App() {
-  return <>QuickChat</>;
+  return (
+    <>
+      <div></div>
+    </>
+  );
 }
 
 export default App;
