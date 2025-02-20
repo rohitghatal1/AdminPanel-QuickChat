@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "tailwindcss";
+
 * {
   font-family: Poppins, sans-serif !important;
   font-weight: 400;
