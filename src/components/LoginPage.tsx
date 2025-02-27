@@ -1,12 +1,15 @@
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
+import Logo from "../assets/logo/QuickChat.png";
 
 const LoginPage: React.FC = () => {
   const [adminLoginForm] = Form.useForm();
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="w-[40rem]">
-        <h2 className="text-lg py-2 text-center">Admin Login Page</h2>
+      <div className="w-[30rem]">
+        <div className="w-full flex items-center justify-center py-1">
+          <img src={Logo} alt="Quickchat" className="w-40 h-16" />
+        </div>
         <div className="rounded-md border border-gray-300 p-4 shadow-md">
           <Form layout="vertical" form={adminLoginForm}>
             <Form.Item label="Username">
@@ -14,6 +17,10 @@ const LoginPage: React.FC = () => {
             </Form.Item>
             <Form.Item label="Password">
               <Input.Password />
+            </Form.Item>
+
+            <Form.Item>
+              <Button type="primary">Login</Button>
             </Form.Item>
           </Form>
         </div>
