@@ -1,6 +1,7 @@
 import { LuLayoutDashboard } from "react-icons/lu";
 import { PiUsersThree } from "react-icons/pi";
 import { TiMessages } from "react-icons/ti";
+import { NavLink } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
   const SidebarItems = [
@@ -22,7 +23,13 @@ const Sidebar: React.FC = () => {
   ];
   return (
     <div>
-      <h2>QuickChat</h2>
+      <aside>
+        {SidebarItems.map((item: any, index: number) => (
+          <NavLink to={item?.link} key={index}>
+            {item.label}
+          </NavLink>
+        ))}
+      </aside>
     </div>
   );
 };
