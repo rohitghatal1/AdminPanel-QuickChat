@@ -1,7 +1,12 @@
+import { Avatar } from "antd";
+
 const Header: React.FC = () => {
   return (
     <div>
-      <h2>Header</h2>
+      <div>
+        <Avatar>R</Avatar>
+        Rohit Ghatal
+      </div>
     </div>
   );
 };

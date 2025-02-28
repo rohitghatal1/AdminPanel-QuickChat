@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
 export default function MainScreen() {
@@ -14,7 +15,9 @@ export default function MainScreen() {
           <div>
             <Header />
           </div>
-          <div>contente</div>
+          <div>
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
