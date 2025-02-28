@@ -1,3 +1,5 @@
+import Header from "./Header";
+
 export default function MainScreen() {
   return (
     <div>
@@ -9,7 +11,9 @@ export default function MainScreen() {
           </aside>
         </div>
         <div>
-          <h2>Heder</h2>
+          <div>
+            <Header />
+          </div>
           <div>contente</div>
         </div>
       </div>
