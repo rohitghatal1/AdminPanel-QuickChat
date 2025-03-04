@@ -1,8 +1,8 @@
-import { Avatar, Badge, Button, Popover, Tag } from "antd";
-import moment from "moment";
-import { FaPlus, FaRegBell, FaSearch, FaTimes, FaUser } from "react-icons/fa";
+import { Avatar, Badge, Button, Popover } from "antd";
+
+import { FaRegBell, FaSearch, FaTimes, FaUser } from "react-icons/fa";
 import { GoClock } from "react-icons/go";
-import { GrAnnounce } from "react-icons/gr";
+
 import { MdSupportAgent } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -10,16 +10,9 @@ const Header: React.FC = () => {
   return (
     <div>
       <header className="  flex items-center justify-between px-5 h-[70px] shadow-md">
-        {/* <Button onClick={() => setCollapsed(!collapsed)} className=' ' type='text'>
-						<FaBars className='text-xl' />
-					</Button> */}
-
         <div className="flex items-center gap-1">
           <div>
-            <Avatar
-              className="bg-gray-300 text-white mx-4 min-h-[45px] min-w-[45px] "
-              // src={businessData?.image}
-            >
+            <Avatar className="bg-gray-300 text-white mx-4 min-h-[45px] min-w-[45px] ">
               <span className="text-[30px]"> Rohit Ghatal</span>
             </Avatar>
           </div>
