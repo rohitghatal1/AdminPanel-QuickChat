@@ -1,18 +1,13 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PaintBanner from "../../assets/logo/BharoshaLogo.png";
 import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";
 import { CiLogout } from "react-icons/ci";
-import { FaPaintRoller, FaTruckMoving } from "react-icons/fa";
-import { GiPaintBucket } from "react-icons/gi";
+import { FaPaintRoller } from "react-icons/fa6";
 
 const Dashboard: React.FC = () => {
-  const [distributors, setDistributors] = useState<number>(0);
-  const [monthlyOrders, setMonthlyOrders] = useState<number>(0);
-  const [salesData] = useState([65, 59, 80, 81, 56, 55, 40]);
-
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     window.location.href = "/";
@@ -35,11 +30,6 @@ const Dashboard: React.FC = () => {
       </p>
     </div>
   );
-
-  useEffect(() => {
-    setDistributors(48);
-    setMonthlyOrders(256);
-  }, []);
 
   return (
     <div className="w-full py-6 flex gap-4 bg-gray-50 px-3">
@@ -76,54 +66,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="col-span-2 bg-white p-6 rounded-xl shadow-md border border-teal-50">
-            <h3 className="font-bold text-lg text-teal-800">Sales Trends</h3>
-            <div className="mt-4">
-              <div className="h-60 rounded-lg bg-gradient-to-b from-teal-50 to-white flex items-center justify-center">
-                <div className="flex items-end gap-2 h-48">
-                  {salesData.map((value, index) => (
-                    <div
-                      key={index}
-                      className="w-8 bg-teal-400 rounded-t-lg transition-all hover:bg-teal-600"
-                      style={{ height: `${value}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-md border border-teal-50">
-            <h3 className="font-bold text-lg text-teal-800">Key Metrics</h3>
-            <div className="flex flex-col gap-6 mt-6">
-              <div className="flex items-center bg-teal-50 p-4 rounded-lg">
-                <div className="bg-teal-600 p-3 rounded-full mr-3">
-                  <FaTruckMoving className="text-2xl text-white" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-teal-800">
-                    {distributors}
-                  </p>
-                  <p className="text-sm text-gray-600">Active Distributors</p>
-                </div>
-              </div>
-
-              <div className="flex items-center bg-teal-50 p-4 rounded-lg">
-                <div className="bg-teal-600 p-3 rounded-full mr-3">
-                  <GiPaintBucket className="text-2xl text-white" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-teal-800">
-                    {monthlyOrders}
-                  </p>
-                  <p className="text-sm text-gray-600">Monthly Orders</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="mt-8">
           <h3 className="text-xl font-bold text-teal-800">Initiatives</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
@@ -131,24 +73,29 @@ const Dashboard: React.FC = () => {
               <h4 className="font-bold text-teal-800 mb-2">
                 Premium Collection Launch
               </h4>
+
               <p className="text-sm text-gray-600">
                 Introducing our new luxury paint line with enhanced durability
                 and exclusive color palettes.
               </p>
             </div>
+
             <div className="bg-white p-5 rounded-xl shadow-md border border-teal-50 hover:shadow-lg transition-shadow">
               <h4 className="font-bold text-teal-800 mb-2">
                 Eco-Friendly Paints
               </h4>
+
               <p className="text-sm text-gray-600">
                 Expanding our sustainable product range with zero-VOC,
                 environmentally friendly options.
               </p>
             </div>
+
             <div className="bg-white p-5 rounded-xl shadow-md border border-teal-50 hover:shadow-lg transition-shadow">
               <h4 className="font-bold text-teal-800 mb-2">
                 Supply Chain Optimization
               </h4>
+
               <p className="text-sm text-gray-600">
                 Implementing AI-driven logistics for faster delivery and reduced
                 operational costs.
@@ -164,6 +111,7 @@ const Dashboard: React.FC = () => {
             <h2 className="font-semibold text-lg text-teal-800">
               Distribution Manager
             </h2>
+
             <Popover
               trigger="click"
               content={popoverContent}
@@ -174,6 +122,7 @@ const Dashboard: React.FC = () => {
               </span>
             </Popover>
           </div>
+
           <div className="flex flex-col items-center justify-center mt-8">
             <Avatar
               size={90}
