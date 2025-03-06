@@ -1,10 +1,8 @@
-import { Avatar, Badge, Button, Popover } from "antd";
+import { Avatar, Popover } from "antd";
 
-import { FaRegBell, FaSearch, FaTimes, FaUser } from "react-icons/fa";
-import { GoClock } from "react-icons/go";
+import { FaSearch, FaTimes, FaUser } from "react-icons/fa";
 
 import { MdSupportAgent } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
@@ -21,22 +19,6 @@ const Header: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-3  px-5">
-          <Link to={"/logs"}>
-            <Button
-              className=" flex items-center h-10 rounded-xl"
-              icon={<GoClock />}
-            >
-              Logs
-            </Button>
-          </Link>
-
-          <Popover placement="bottomRight" trigger="click">
-            <Badge>
-              <div className="rounded-full cursor-pointer p-3 text-lg bg-gray-200">
-                <FaRegBell className="text-gray-600 text-[16px]" />
-              </div>
-            </Badge>
-          </Popover>
           <Popover placement="bottomLeft" trigger="click" className="relative">
             <i className="text-gray-500 absolute top-[7px] left-3 translate-y-1">
               <FaSearch />
