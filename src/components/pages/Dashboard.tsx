@@ -1,7 +1,5 @@
 import moment from "moment";
 import React from "react";
-import PaintBanner from "../../assets/logo/BharoshaLogo.png";
-import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";
 import { CiLogout } from "react-icons/ci";
@@ -50,8 +48,8 @@ const Dashboard: React.FC = () => {
 
         <div className="relative mt-8 bg-white p-6 rounded-xl shadow-md flex items-center overflow-hidden">
           <img
-            src={PaintBanner}
-            alt="Paint Distribution"
+            src=""
+            alt="Some Image"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
           <div className="relative z-10 text-center w-full">
@@ -126,21 +124,20 @@ const Dashboard: React.FC = () => {
           <div className="flex flex-col items-center justify-center mt-8">
             <Avatar
               size={90}
-              src={profileAvatar}
+              src=""
               className="border-4 border-teal-100 shadow-sm"
             />
             <p className="font-semibold text-lg mt-4 text-teal-800">
               Rohit Ghatal
             </p>
-            <p className="text-gray-500 text-sm">
-              Regional Distribution Manager
-            </p>
+            <p className="text-gray-500 text-sm">Admin</p>
 
             <div className="w-full mt-6 space-y-3">
               <div className="flex justify-between items-center p-2 bg-teal-50 rounded-lg">
                 <span className="text-sm text-gray-600">Today's Orders:</span>
                 <span className="font-semibold text-teal-700">42</span>
               </div>
+
               <div className="flex justify-between items-center p-2 bg-teal-50 rounded-lg">
                 <span className="text-sm text-gray-600">
                   Pending Shipments:
