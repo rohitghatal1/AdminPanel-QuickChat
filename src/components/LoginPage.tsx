@@ -4,6 +4,13 @@ import Logo from "../assets/logo/QuickChat.png";
 const LoginPage: React.FC = () => {
   const [adminLoginForm] = Form.useForm();
 
+  const submitLoginForm = async (values: any) => {
+    try {
+      console.log(values);
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="w-[30rem]">
@@ -11,7 +18,11 @@ const LoginPage: React.FC = () => {
           <img src={Logo} alt="Quickchat" className="w-40 h-16" />
         </div>
         <div className="rounded-md border border-gray-300 p-4 shadow-md">
-          <Form layout="vertical" form={adminLoginForm}>
+          <Form
+            layout="vertical"
+            form={adminLoginForm}
+            onFinish={submitLoginForm}
+          >
             <Form.Item label="Username">
               <Input />
             </Form.Item>
