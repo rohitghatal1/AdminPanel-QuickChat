@@ -52,10 +52,12 @@ const Dashboard: React.FC = () => {
             alt="Some Image"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
+
           <div className="relative z-10 text-center w-full">
             <h2 className="text-2xl font-bold text-teal-800">
               Revolutionizing Paint Distribution
             </h2>
+
             <p className="text-sm mt-4 text-gray-600 max-w-2xl mx-auto">
               Delivering vibrant color solutions nationwide! Our efficient
               distribution network ensures timely delivery of premium quality
@@ -106,9 +108,7 @@ const Dashboard: React.FC = () => {
       <div className="w-[28%] bg-white rounded-lg shadow-xl border border-teal-50 p-3">
         <div className="p-4">
           <div className="flex justify-between items-center px-2">
-            <h2 className="font-semibold text-lg text-teal-800">
-              Distribution Manager
-            </h2>
+            <h2 className="font-semibold text-lg text-teal-800">All Users</h2>
 
             <Popover
               trigger="click"
@@ -134,7 +134,7 @@ const Dashboard: React.FC = () => {
 
             <div className="w-full mt-6 space-y-3">
               <div className="flex justify-between items-center p-2 bg-teal-50 rounded-lg">
-                <span className="text-sm text-gray-600">Today's Orders:</span>
+                <span className="text-sm text-gray-600">Today's messages:</span>
                 <span className="font-semibold text-teal-700">42</span>
               </div>
 
