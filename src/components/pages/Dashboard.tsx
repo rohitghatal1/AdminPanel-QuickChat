@@ -4,8 +4,6 @@ import Photo from "../../assets/photos/banner.png";
 import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";
-import axiosInstance from "../utils/axiosInstance";
-import { showErrorMessage } from "../utils/notificationShow";
 import { CiLogout } from "react-icons/ci";
 
 const Dashboard: React.FC = () => {
@@ -35,32 +33,6 @@ const Dashboard: React.FC = () => {
     </div>
   );
 
-  const getAllContacts = async () => {
-    try {
-      const respnse = await axiosInstance.get("/contacts");
-      setAllContacts(respnse?.data?.data);
-    } catch (err: any) {
-      showErrorMessage(err?.response?.data?.message);
-    }
-  };
-
-  const getAllIntegrations = async () => {
-    try {
-      const response = await axiosInstance.get(
-        "/integrations/whatsapp/integrations"
-      );
-      setAllIntegrations(response?.data?.data);
-      console.log(response?.data?.data);
-    } catch (err: any) {
-      showErrorMessage(err?.response?.data?.message);
-    }
-  };
-
-  useEffect(() => {
-    getAllContacts();
-    getAllIntegrations();
-  }, []);
-
   return (
     <div className="w-full py-6 flex gap-4 bg-white px-3">
       <div className="w-[70%] h-full ml-4">
@@ -79,10 +51,12 @@ const Dashboard: React.FC = () => {
             alt="User"
             className="absolute bottom-0 left-6 w-60 h-60 object-cover transform"
           />
+
           <div className="text-center ml-60">
             <h2 className="text-2xl font-bold">
               Simplify Bulk WhatsApp Messaging
             </h2>
+
             <p className="text-sm mt-4">
               Streamline communication effortlessly! With our solution, sending
               bulk WhatsApp messages is faster and more convenient than ever.
