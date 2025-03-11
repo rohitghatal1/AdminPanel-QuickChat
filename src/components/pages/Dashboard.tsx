@@ -1,150 +1,170 @@
 import moment from "moment";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Photo from "../../assets/photos/banner.png";
+import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";
+import axiosInstance from "../utils/axiosInstance";
+import { showErrorMessage } from "../utils/notificationShow";
 import { CiLogout } from "react-icons/ci";
-import { FaPaintRoller } from "react-icons/fa6";
 
 const Dashboard: React.FC = () => {
+  const [allContacts, setAllContacts] = useState<any>([]);
+  const [allIntegrations, setAllIntegrations] = useState<any>([]);
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     window.location.href = "/";
   };
 
   const popoverContent = (
-    <div className="p-2">
+    <div>
       <p
-        className="flex items-center gap-2 cursor-pointer hover:text-teal-600 transition-colors"
+        className="flex items-center gap-1 cursor-pointer"
         onClick={() => {
           Modal.confirm({
             title: "Confirm Logout",
-            content: "Are you sure you want to log out?",
+            content: "Are you sure, you want to log out ?",
             onOk: handleLogout,
           });
         }}
       >
-        <CiLogout className="text-lg" />
+        <CiLogout />
         Log out
       </p>
     </div>
   );
 
-  return (
-    <div className="w-full py-6 flex gap-4 bg-gray-50 px-3">
-      <div className="w-[70%] h-full ml-4">
-        <div className="flex justify-between items-center bg-gradient-to-r from-teal-600 to-teal-400 p-6 rounded-xl shadow-lg">
-          <div>
-            <h1 className="text-3xl font-bold text-white">
-              Jasmine Paints Dashboard
-            </h1>
+  const getAllContacts = async () => {
+    try {
+      const respnse = await axiosInstance.get("/contacts");
+      setAllContacts(respnse?.data?.data);
+    } catch (err: any) {
+      showErrorMessage(err?.response?.data?.message);
+    }
+  };
 
-            <p className="text-sm text-teal-100 mt-1">
+  const getAllIntegrations = async () => {
+    try {
+      const response = await axiosInstance.get(
+        "/integrations/whatsapp/integrations"
+      );
+      setAllIntegrations(response?.data?.data);
+      console.log(response?.data?.data);
+    } catch (err: any) {
+      showErrorMessage(err?.response?.data?.message);
+    }
+  };
+
+  useEffect(() => {
+    getAllContacts();
+    getAllIntegrations();
+  }, []);
+
+  return (
+    <div className="w-full py-6 flex gap-4 bg-white px-3">
+      <div className="w-[70%] h-full ml-4">
+        <div className="flex justify-between items-center border p-6 rounded-xl">
+          <div>
+            <h1 className="text-3xl font-bold text-blue-800">Dashboard</h1>
+            <p className="text-sm text-blue-600">
               {moment().format("dddd, DD MMMM YYYY")}
             </p>
           </div>
-
-          <FaPaintRoller className="text-4xl text-white opacity-90" />
         </div>
 
-        <div className="relative mt-8 bg-white p-6 rounded-xl shadow-md flex items-center overflow-hidden">
+        <div className="relative mt-20 bg-blue-500 text-white p-6 rounded-xl shadow-md flex items-center space-y-6">
           <img
-            src=""
-            alt="Some Image"
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            src={Photo}
+            alt="User"
+            className="absolute bottom-0 left-6 w-60 h-60 object-cover transform"
           />
-
-          <div className="relative z-10 text-center w-full">
-            <h2 className="text-2xl font-bold text-teal-800">
-              Revolutionizing Paint Distribution
+          <div className="text-center ml-60">
+            <h2 className="text-2xl font-bold">
+              Simplify Bulk WhatsApp Messaging
             </h2>
-
-            <p className="text-sm mt-4 text-gray-600 max-w-2xl mx-auto">
-              Delivering vibrant color solutions nationwide! Our efficient
-              distribution network ensures timely delivery of premium quality
-              paints.
+            <p className="text-sm mt-4">
+              Streamline communication effortlessly! With our solution, sending
+              bulk WhatsApp messages is faster and more convenient than ever.
+              Embrace the power to connect with your team seamlessly and
+              effectively.
             </p>
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="col-span-2 border border-gray-300 p-6 rounded-xl shadow-md">
+            <h3 className="font-bold text-lg text-gray-700">Activity</h3>
+            <div className="mt-4">
+              <div className="h-36 rounded-lg flex items-center justify-center text-gray-500">
+                Chart Placeholder
+              </div>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl border border-gray-300 shadow-md">
+            <h3 className="font-bold text-lg text-gray-700">Progress</h3>
+            <div className="flex items-center justify-center gap-4">
+              <div className="mt-4 flex flex-col items-center">
+                <div className="h-24 w-24 bg-blue-200 rounded-full flex items-center justify-center text-blue-600 font-semibold text-lg">
+                  {allContacts.length}
+                </div>
+                <p className="text-gray-600 mt-2">Contacts</p>
+              </div>
+
+              <div className="mt-4 flex flex-col items-center">
+                <div className="h-24 w-24 bg-blue-200 rounded-full flex items-center justify-center text-blue-600 font-semibold text-lg">
+                  {allIntegrations.length}
+                </div>
+                <p className="text-gray-600 mt-2">Integrations</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-xl font-bold text-teal-800">Initiatives</h3>
+          <h3 className="text-xl font-bold text-gray-700">Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-            <div className="bg-white p-5 rounded-xl shadow-md border border-teal-50 hover:shadow-lg transition-shadow">
-              <h4 className="font-bold text-teal-800 mb-2">
-                Premium Collection Launch
-              </h4>
-
+            <div className="bg-white p-4 rounded-xl border border-gray-300 shadow-md">
+              <h4 className="font-bold text-gray-700">Baseline Project</h4>
               <p className="text-sm text-gray-600">
-                Introducing our new luxury paint line with enhanced durability
-                and exclusive color palettes.
+                Make something interesting and make your day more meaningful.
               </p>
             </div>
-
-            <div className="bg-white p-5 rounded-xl shadow-md border border-teal-50 hover:shadow-lg transition-shadow">
-              <h4 className="font-bold text-teal-800 mb-2">
-                Eco-Friendly Paints
-              </h4>
-
+            <div className="bg-white p-4 rounded-xl  border border-gray-300 shadow-md">
+              <h4 className="font-bold text-gray-700">Paper Industry</h4>
               <p className="text-sm text-gray-600">
-                Expanding our sustainable product range with zero-VOC,
-                environmentally friendly options.
+                Paper industry to explain the industry that is explored and
+                pursued.
               </p>
             </div>
-
-            <div className="bg-white p-5 rounded-xl shadow-md border border-teal-50 hover:shadow-lg transition-shadow">
-              <h4 className="font-bold text-teal-800 mb-2">
-                Supply Chain Optimization
-              </h4>
-
+            <div className="bg-white p-4 rounded-xl  border border-gray-300 shadow-md">
+              <h4 className="font-bold text-gray-700">Tool Production</h4>
               <p className="text-sm text-gray-600">
-                Implementing AI-driven logistics for faster delivery and reduced
-                operational costs.
+                Tools to provide your convenience in every access.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-[28%] bg-white rounded-lg shadow-xl border border-teal-50 p-3">
+      <div className="w-[28%] bg-white rounded-lg border border-gray-300 p-3">
         <div className="p-4">
           <div className="flex justify-between items-center px-2">
-            <h2 className="font-semibold text-lg text-teal-800">All Users</h2>
-
+            <h2 className="font-semibold text-lg">My Profile</h2>
             <Popover
               trigger="click"
               content={popoverContent}
               placement="bottom"
             >
-              <span className="cursor-pointer text-teal-600 hover:text-teal-800">
+              <span className="cursor-pointer">
                 <BsThreeDotsVertical />
               </span>
             </Popover>
           </div>
-
           <div className="flex flex-col items-center justify-center mt-8">
-            <Avatar
-              size={90}
-              src=""
-              className="border-4 border-teal-100 shadow-sm"
-            />
-            <p className="font-semibold text-lg mt-4 text-teal-800">
-              Rohit Ghatal
-            </p>
-            <p className="text-gray-500 text-sm">Admin</p>
-
-            <div className="w-full mt-6 space-y-3">
-              <div className="flex justify-between items-center p-2 bg-teal-50 rounded-lg">
-                <span className="text-sm text-gray-600">Today's messages:</span>
-                <span className="font-semibold text-teal-700">42</span>
-              </div>
-
-              <div className="flex justify-between items-center p-2 bg-teal-50 rounded-lg">
-                <span className="text-sm text-gray-600">
-                  Pending Shipments:
-                </span>
-                <span className="font-semibold text-teal-700">15</span>
-              </div>
-            </div>
+            <Avatar size={70} src={profileAvatar} className="border" />
+            <p className="font-semibold text-lg">Rohit Ghatal</p>
+            <p className="text-gray-500">rohitghatal@gmail.com</p>
           </div>
         </div>
       </div>
