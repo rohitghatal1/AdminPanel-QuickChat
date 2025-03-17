@@ -11,10 +11,12 @@ export default function MainScreen() {
             <h2>Sidebar</h2>
           </aside>
         </div>
+
         <div className="rounded-lg">
           <div className="h-[50px] py-2">
             <Header />
           </div>
+
           <div className="h-[calc(100%-50px)]">
             <Outlet />
           </div>

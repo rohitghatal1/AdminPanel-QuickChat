@@ -6,8 +6,6 @@ import { Avatar, Modal, Popover } from "antd";
 import { CiLogout } from "react-icons/ci";
 
 const Dashboard: React.FC = () => {
-  const [allContacts, setAllContacts] = useState<any>([]);
-
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     window.location.href = "/";
