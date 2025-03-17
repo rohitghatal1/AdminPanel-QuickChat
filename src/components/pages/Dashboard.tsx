@@ -1,6 +1,5 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import Photo from "../../assets/photos/banner.png";
 import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";
@@ -8,7 +7,6 @@ import { CiLogout } from "react-icons/ci";
 
 const Dashboard: React.FC = () => {
   const [allContacts, setAllContacts] = useState<any>([]);
-  const [allIntegrations, setAllIntegrations] = useState<any>([]);
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -42,56 +40,6 @@ const Dashboard: React.FC = () => {
             <p className="text-sm text-blue-600">
               {moment().format("dddd, DD MMMM YYYY")}
             </p>
-          </div>
-        </div>
-
-        <div className="relative mt-20 bg-blue-500 text-white p-6 rounded-xl shadow-md flex items-center space-y-6">
-          <img
-            src={Photo}
-            alt="User"
-            className="absolute bottom-0 left-6 w-60 h-60 object-cover transform"
-          />
-
-          <div className="text-center ml-60">
-            <h2 className="text-2xl font-bold">
-              Simplify Bulk WhatsApp Messaging
-            </h2>
-
-            <p className="text-sm mt-4">
-              Streamline communication effortlessly! With our solution, sending
-              bulk WhatsApp messages is faster and more convenient than ever.
-              Embrace the power to connect with your team seamlessly and
-              effectively.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="col-span-2 border border-gray-300 p-6 rounded-xl shadow-md">
-            <h3 className="font-bold text-lg text-gray-700">Activity</h3>
-            <div className="mt-4">
-              <div className="h-36 rounded-lg flex items-center justify-center text-gray-500">
-                Chart Placeholder
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-300 shadow-md">
-            <h3 className="font-bold text-lg text-gray-700">Progress</h3>
-            <div className="flex items-center justify-center gap-4">
-              <div className="mt-4 flex flex-col items-center">
-                <div className="h-24 w-24 bg-blue-200 rounded-full flex items-center justify-center text-blue-600 font-semibold text-lg">
-                  {allContacts.length}
-                </div>
-                <p className="text-gray-600 mt-2">Contacts</p>
-              </div>
-
-              <div className="mt-4 flex flex-col items-center">
-                <div className="h-24 w-24 bg-blue-200 rounded-full flex items-center justify-center text-blue-600 font-semibold text-lg">
-                  {allIntegrations.length}
-                </div>
-                <p className="text-gray-600 mt-2">Integrations</p>
-              </div>
-            </div>
           </div>
         </div>
 
