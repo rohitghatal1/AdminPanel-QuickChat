@@ -27,6 +27,9 @@ export default function Users() {
       <h2>Users</h2>
       <div className="px-4">
         <h2>All users: </h2>
+        <div>
+          <p>All registered users:</p>
+        </div>
         <div className="rounded-lg">
           <Table pagination={false} columns={columns} />
         </div>

@@ -47,6 +47,7 @@ const Sidebar: React.FC = () => {
       <div>
         <img src={QuickChatLogo} alt="" />
       </div>
+
       <aside>
         {SidebarItems.map((item: any, index: number) => (
           <NavLink to={item?.link} key={index}>
