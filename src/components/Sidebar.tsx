@@ -21,6 +21,26 @@ const Sidebar: React.FC = () => {
       label: "Messages",
       link: "/messages",
     },
+    {
+      icon: <PiUsersThree />,
+      label: "Users",
+      link: "/users",
+    },
+    {
+      icon: <TiMessages />,
+      label: "Messages",
+      link: "/messages",
+    },
+    {
+      icon: <PiUsersThree />,
+      label: "Users",
+      link: "/users",
+    },
+    {
+      icon: <TiMessages />,
+      label: "Messages",
+      link: "/messages",
+    },
   ];
   return (
     <div>
