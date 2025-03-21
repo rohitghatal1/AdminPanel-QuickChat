@@ -1,11 +1,14 @@
 import { Table } from "antd";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Users() {
   const [allUsers, setAllUsers] = useState<any>([]);
 
-  const getAllUsers = () => {
+  const getAllUsers = async () => {
     try {
+      const response = await axios.get("/users");
+      setAllUsers(response?.data?.data);
     } catch (err: any) {
       console.log(err);
     }
