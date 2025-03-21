@@ -1,6 +1,19 @@
 import { Table } from "antd";
+import axios from "axios";
+import { useState } from "react";
 
 const Messages: React.FC = () => {
+  const [allMessages, setAllMessages] = useState<any>([]);
+
+  const fetchAllMessages = async () => {
+    try {
+      const response = await axios.get("/messages");
+      setAllMessages(response?.data?.data);
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
   const columns = [
     {
       title: "SN",
