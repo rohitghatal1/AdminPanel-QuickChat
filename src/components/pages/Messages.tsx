@@ -1,6 +1,6 @@
 import { Table } from "antd";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Messages: React.FC = () => {
   const [allMessages, setAllMessages] = useState<any>([]);
@@ -13,6 +13,10 @@ const Messages: React.FC = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    fetchAllMessages();
+  }, []);
 
   const columns = [
     {
