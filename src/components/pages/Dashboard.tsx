@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import profileAvatar from "../../assets/photos/profilePic.jpg";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Avatar, Modal, Popover } from "antd";

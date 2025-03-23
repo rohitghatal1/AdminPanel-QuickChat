@@ -17,6 +17,7 @@ export default function Users() {
   useEffect(() => {
     getAllUsers();
   }, []);
+
   const columns = [
     {
       title: "SN",

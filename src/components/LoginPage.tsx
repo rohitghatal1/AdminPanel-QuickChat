@@ -11,6 +11,7 @@ const LoginPage: React.FC = () => {
       console.log(err);
     }
   };
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="w-[30rem]">
@@ -27,7 +28,7 @@ const LoginPage: React.FC = () => {
             <Form.Item label="Username">
               <Input />
             </Form.Item>
-            
+
             <Form.Item label="Password">
               <Input.Password />
             </Form.Item>
