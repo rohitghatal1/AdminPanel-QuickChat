@@ -50,6 +50,7 @@ const Dashboard: React.FC = () => {
                 Make something interesting and make your day more meaningful.
               </p>
             </div>
+
             <div className="bg-white p-4 rounded-xl  border border-gray-300 shadow-md">
               <h4 className="font-bold text-gray-700">Paper Industry</h4>
               <p className="text-sm text-gray-600">
@@ -57,6 +58,7 @@ const Dashboard: React.FC = () => {
                 pursued.
               </p>
             </div>
+
             <div className="bg-white p-4 rounded-xl  border border-gray-300 shadow-md">
               <h4 className="font-bold text-gray-700">Tool Production</h4>
               <p className="text-sm text-gray-600">
