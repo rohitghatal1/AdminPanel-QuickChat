@@ -4,6 +4,11 @@ import { FaUser } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
 
 const Header: React.FC = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    window.location.href = "/";
+  };
+
   const popoverContent = (
     <div>
       <p

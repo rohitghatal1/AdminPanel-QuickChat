@@ -2,11 +2,6 @@ import moment from "moment";
 import React from "react";
 
 const Dashboard: React.FC = () => {
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    window.location.href = "/";
-  };
-
   return (
     <div className="w-full py-6 flex gap-4 bg-white px-3">
       <div className="w-[70%] h-full ml-4">
