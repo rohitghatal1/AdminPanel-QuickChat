@@ -1,33 +1,11 @@
 import moment from "moment";
 import React from "react";
-import profileAvatar from "../../assets/photos/profilePic.jpg";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { Avatar, Modal, Popover } from "antd";
-import { CiLogout } from "react-icons/ci";
 
 const Dashboard: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     window.location.href = "/";
   };
-
-  const popoverContent = (
-    <div>
-      <p
-        className="flex items-center gap-1 cursor-pointer"
-        onClick={() => {
-          Modal.confirm({
-            title: "Confirm Logout",
-            content: "Are you sure, you want to log out ?",
-            onOk: handleLogout,
-          });
-        }}
-      >
-        <CiLogout />
-        Log out
-      </p>
-    </div>
-  );
 
   return (
     <div className="w-full py-6 flex gap-4 bg-white px-3">
@@ -65,28 +43,6 @@ const Dashboard: React.FC = () => {
                 Tools to provide your convenience in every access.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-[28%] bg-white rounded-lg border border-gray-300 p-3">
-        <div className="p-4">
-          <div className="flex justify-between items-center px-2">
-            <h2 className="font-semibold text-lg">My Profile</h2>
-            <Popover
-              trigger="click"
-              content={popoverContent}
-              placement="bottom"
-            >
-              <span className="cursor-pointer">
-                <BsThreeDotsVertical />
-              </span>
-            </Popover>
-          </div>
-          <div className="flex flex-col items-center justify-center mt-8">
-            <Avatar size={70} src={profileAvatar} className="border" />
-            <p className="font-semibold text-lg">Rohit Ghatal</p>
-            <p className="text-gray-500">rohitghatal@gmail.com</p>
           </div>
         </div>
       </div>

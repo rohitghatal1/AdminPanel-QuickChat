@@ -1,8 +1,27 @@
-import { Avatar, Popover } from "antd";
+import { Avatar, Modal, Popover } from "antd";
+import { CiLogout } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
 
 const Header: React.FC = () => {
+  const popoverContent = (
+    <div>
+      <p
+        className="flex items-center gap-1 cursor-pointer"
+        onClick={() => {
+          Modal.confirm({
+            title: "Confirm Logout",
+            content: "Are you sure, you want to log out ?",
+            onOk: handleLogout,
+          });
+        }}
+      >
+        <CiLogout />
+        Log out
+      </p>
+    </div>
+  );
+
   return (
     <div>
       <header className="  flex items-center justify-between px-5 h-[70px] shadow-md">
