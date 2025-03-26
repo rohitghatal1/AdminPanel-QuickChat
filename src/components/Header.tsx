@@ -1,4 +1,4 @@
-import { Avatar, Modal, Popover } from "antd";
+import { Avatar, Button, Modal, Popconfirm, Popover } from "antd";
 import { CiLogout } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
@@ -56,6 +56,10 @@ const Header: React.FC = () => {
               <MdSupportAgent />
             </i>
           }
+
+          <Popconfirm title={popoverContent} trigger="click">
+            <Button danger>Log out</Button>
+          </Popconfirm>
         </div>
       </header>
     </div>
