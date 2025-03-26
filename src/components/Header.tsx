@@ -20,10 +20,7 @@ const Header: React.FC = () => {
             onOk: handleLogout,
           });
         }}
-      >
-        <CiLogout />
-        Log out
-      </p>
+      ></p>
     </div>
   );
 
@@ -58,7 +55,10 @@ const Header: React.FC = () => {
           }
 
           <Popconfirm title={popoverContent} trigger="click">
-            <Button danger>Log out</Button>
+            <Button danger>
+              {" "}
+              <CiLogout /> Log out
+            </Button>
           </Popconfirm>
         </div>
       </header>
