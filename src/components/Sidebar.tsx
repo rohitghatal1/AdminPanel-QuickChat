@@ -3,6 +3,7 @@ import { PiUsersThree } from "react-icons/pi";
 import { TiMessages } from "react-icons/ti";
 import { NavLink } from "react-router-dom";
 import QuickChatLogo from "../assets/logo/QuickChat.png";
+import { FaGear } from "react-icons/fa6";
 
 const Sidebar: React.FC = () => {
   const SidebarItems = [
@@ -11,37 +12,50 @@ const Sidebar: React.FC = () => {
       label: "Dashboard",
       link: "/dashboard",
     },
+
     {
       icon: <PiUsersThree />,
       label: "Users",
       link: "/users",
     },
+
     {
       icon: <TiMessages />,
       label: "Messages",
       link: "/messages",
     },
+
     {
       icon: <PiUsersThree />,
       label: "Users",
       link: "/users",
     },
+
     {
       icon: <TiMessages />,
       label: "Messages",
       link: "/messages",
     },
+
     {
       icon: <PiUsersThree />,
       label: "Users",
       link: "/users",
     },
+
     {
       icon: <TiMessages />,
       label: "Messages",
       link: "/messages",
+    },
+
+    {
+      icon: <FaGear />,
+      label: "Settings",
+      link: "/settings",
     },
   ];
+
   return (
     <div>
       <div>
