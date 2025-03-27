@@ -22,23 +22,28 @@ export default function Users() {
     {
       title: "SN",
       key: "sn",
+      render: () => <span>1</span>,
     },
+
     {
       title: "Name",
       dataIndex: "Name",
       key: "Name",
     },
+
     {
       title: "Address",
       dataIndex: "Address",
       key: "Address",
     },
+
     {
       title: "Contact",
       dataIndex: "Contact",
       key: "Contact",
     },
   ];
+
   return (
     <div>
       <h2>Users</h2>
@@ -48,7 +53,7 @@ export default function Users() {
           <p>All registered users:</p>
         </div>
         <div className="rounded-lg">
-          <Table pagination={false} columns={columns} />
+          <Table pagination={false} columns={columns} dataSource={allUsers} />
         </div>
       </div>
     </div>
