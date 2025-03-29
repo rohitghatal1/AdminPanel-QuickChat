@@ -7,7 +7,7 @@ export default function Users() {
 
   const getAllUsers = async () => {
     try {
-      const response = await axios.get("/users");
+      const response = await axios.get("api/users/getUsers");
       setAllUsers(response?.data?.data);
     } catch (err: any) {
       console.log(err);
