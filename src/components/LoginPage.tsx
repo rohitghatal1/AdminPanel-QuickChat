@@ -1,12 +1,13 @@
 import { Button, Form, Input } from "antd";
 import Logo from "../assets/logo/QuickChat.png";
+import axiosInstance from "../utils/axiosInstance";
 
 const LoginPage: React.FC = () => {
   const [adminLoginForm] = Form.useForm();
 
   const submitLoginForm = async (values: any) => {
     try {
-      console.log(values);
+      await axiosInstance.post("/admin/login", values);
     } catch (err: any) {
       console.log(err);
     }

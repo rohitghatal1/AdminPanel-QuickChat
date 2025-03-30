@@ -1,13 +1,13 @@
 import { Table } from "antd";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axiosInstance from "../../utils/axiosInstance";
 
 const Messages: React.FC = () => {
   const [allMessages, setAllMessages] = useState<any>([]);
 
   const fetchAllMessages = async () => {
     try {
-      const response = await axios.get("/messages");
+      const response = await axiosInstance.get("/messages");
       setAllMessages(response?.data?.data);
     } catch (err: any) {
       console.log(err);
