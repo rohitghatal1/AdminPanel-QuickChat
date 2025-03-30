@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import Logo from "../assets/logo/QuickChat.png";
 import axiosInstance from "../utils/axiosInstance";
 
@@ -7,7 +7,9 @@ const LoginPage: React.FC = () => {
 
   const submitLoginForm = async (values: any) => {
     try {
-      await axiosInstance.post("/admin/login", values);
+      const response = await axiosInstance.post("/admin/login", values);
+      message.success("Logged in successfully!");
+      localStorage.setItem("quickChatAccessToken", response?.data?.accessToken);
     } catch (err: any) {
       console.log(err);
     }
