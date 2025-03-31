@@ -2,9 +2,8 @@ import { message as antMessage, Modal } from "antd";
 import { FcApproval } from "react-icons/fc";
 import { MdError, MdCheckCircle } from "react-icons/md";
 import successGIF from "../assets/photos/successGIf.gif";
-import Lottie from "react-lottie-player";
-import successCheckAnimation from "../assets/photos/successAnimation.json";
-import { getNextZIndex } from "./getZindex";
+// import Lottie from "react-lottie-player";
+// import successCheckAnimation from "../assets/photos/successAnimation.json";
 
 const ensureString = (content: any): string => {
   if (content === null || content === undefined) {
@@ -40,7 +39,6 @@ const ensureString = (content: any): string => {
 
 export const showSuccessMessage = (message: string) => {
   Modal.success({
-    zIndex: getNextZIndex() + 20000,
     maskClosable: true,
     centered: true,
     icon: null,
@@ -70,7 +68,6 @@ export const showSuccessMessage = (message: string) => {
 
 export const showErrorMessage = (message: string) => {
   Modal.confirm({
-    zIndex: getNextZIndex() + 20000,
     maskClosable: true,
     closable: true,
     centered: true,
@@ -81,12 +78,4 @@ export const showErrorMessage = (message: string) => {
     okText: "OK",
     okButtonProps: { className: "bg-red-500 hover:!bg-red-600" },
   });
-};
-
-export const showWarningMessage = (content: any): void => {
-  antMessage.warning(ensureString(content));
-};
-
-export const showInfoMessage = (content: any): void => {
-  antMessage.info(ensureString(content));
 };
