@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
+import { showErrorMessage } from "../../utils/ShowMessages";
 
 const Messages: React.FC = () => {
   const [allMessages, setAllMessages] = useState<any>([]);
@@ -11,6 +12,7 @@ const Messages: React.FC = () => {
       setAllMessages(response?.data?.data);
     } catch (err: any) {
       console.log(err);
+      showErrorMessage(err);
     }
   };
 
