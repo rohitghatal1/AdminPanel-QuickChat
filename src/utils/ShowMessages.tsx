@@ -1,9 +1,7 @@
 import { message as antMessage, Modal } from "antd";
-import { FcApproval } from "react-icons/fc";
 import { MdError, MdCheckCircle } from "react-icons/md";
-import successGIF from "../assets/photos/successGIf.gif";
-// import Lottie from "react-lottie-player";
-// import successCheckAnimation from "../assets/photos/successAnimation.json";
+import Lottie from "react-lottie-player";
+import successCheckAnimation from "../assets/photos/successAnimation.json";
 
 const ensureString = (content: any): string => {
   if (content === null || content === undefined) {
