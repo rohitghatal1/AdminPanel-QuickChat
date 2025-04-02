@@ -1,12 +1,6 @@
-import { Select, Input, Button, Form, InputNumber, Spin } from "antd";
-import { useEffect, useState } from "react";
+import { Select, Input, Button, Form, InputNumber } from "antd";
 import { MdDelete } from "react-icons/md";
 const { Option } = Select;
-
-const ItemType = [
-  { typeName: "Item", TypeCode: "I" },
-  { typeName: "Resource", TypeCode: "R" },
-];
 
 interface OutputComponentProps {
   outputItems: any;
@@ -25,16 +19,12 @@ interface OutputComponentProps {
 
 const OutputComponent: React.FC<OutputComponentProps> = ({
   outputItems,
-  inputItems,
   setOutputItems,
   warehouses,
   allGlAccounts,
-  setInputItems,
   setPlannedAggregate,
   form,
   itemsData,
-  customerPriceModel,
-  enableItem,
 }) => {
   const calculateTotal = (index: any) => {
     const quantity = form.getFieldValue(["outputs", index, "Quantity"]);
@@ -43,16 +33,10 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
     form.setFieldValue(["outputs", index, "TotalPrice"], totalPrice);
   };
 
-  const [initialQuantities, setInitialQuantities] = useState<any>({
-    inputs: [],
-    outputs: [],
-  });
-
   const handlePlannedAggregateChange = (value: any) => {
     setPlannedAggregate(value);
   };
 
-  // // Track initial values when components first mount or new items are added
   // useEffect(() => {
   //   if (!outputItems.length || !inputItems.length) return;
 
