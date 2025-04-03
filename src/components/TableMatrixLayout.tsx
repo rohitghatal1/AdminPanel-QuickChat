@@ -33,72 +33,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
     form.setFieldValue(["outputs", index, "TotalPrice"], totalPrice);
   };
 
-  const handlePlannedAggregateChange = (value: any) => {
-    setPlannedAggregate(value);
-  };
-
-  // useEffect(() => {
-  //   if (!outputItems.length || !inputItems.length) return;
-
-  //   if (
-  //     initialQuantities.inputs.length === 0 &&
-  //     initialQuantities.outputs.length === 0
-  //   ) {
-  //     setInitialQuantities({
-  //       inputs: inputItems.map((item: any) => ({
-  //         id: item._id || item.key,
-  //         quantity: item.Quantity || 1,
-  //       })),
-  //       outputs: outputItems.map((item: any) => ({
-  //         id: item._id || item.key,
-  //         quantity: item.Quantity || 1,
-  //       })),
-  //     });
-  //   }
-  // }, [outputItems, inputItems]);
-
-  // // Function to update input quantities proportionally
-  // const updateInputQuantities = (updatedOutputIndex: number) => {
-  //   const updatedOutput = form.getFieldValue([
-  //     "outputs",
-  //     updatedOutputIndex,
-  //     "Quantity",
-  //   ]);
-  //   if (!updatedOutput) return;
-
-  //   const originalOutput = initialQuantities.outputs.find(
-  //     (o: any) => o.id === updatedOutput.id
-  //   );
-  //   if (!originalOutput || originalOutput.quantity === 0) return;
-
-  //   // Calculate scale factor from initial values
-  //   const scaleFactor = inputItems.map((input: any) => {
-  //     const originalInput = initialQuantities.inputs.find(
-  //       (i: any) => i.id === input.id
-  //     );
-  //     if (!originalInput) return null;
-
-  //     return {
-  //       id: input.id,
-  //       scale: originalInput.quantity / originalOutput.quantity, // Initial input-to-output ratio
-  //     };
-  //   });
-
-  //   // Update input quantities based on scale factor
-  //   const updatedInputs = inputItems.map((input: any) => {
-  //     const factor = scaleFactor.find((f: any) => f?.id === input.id);
-  //     if (!factor) return input;
-
-  //     return {
-  //       ...input,
-  //       Quantity: Math.ceil(factor.scale * updatedOutput.Quantity),
-  //     };
-  //   });
-
-  //   setInputItems(updatedInputs);
-  //   form.setFieldsValue({ inputs: updatedInputs });
-  // };
-
   const tableStyles = `
     .output-table {
       width: 100%;
@@ -309,8 +243,7 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                     >
                       <Input
                         type="number"
-                        onBlur={(e) => {
-                          handlePlannedAggregateChange(e.target.value);
+                        onBlur={() => {
                           calculateTotal(index);
                           // updateInputQuantities(index);
                         }}
