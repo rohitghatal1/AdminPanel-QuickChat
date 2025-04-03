@@ -1,7 +1,6 @@
 import { Select, Input, Button, Form, InputNumber } from "antd";
 import { MdDelete } from "react-icons/md";
 const { Option } = Select;
-
 interface OutputComponentProps {
   outputItems: any;
   warehouses?: any;
@@ -22,7 +21,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
   setOutputItems,
   warehouses,
   allGlAccounts,
-  setPlannedAggregate,
   form,
   itemsData,
 }) => {
@@ -250,6 +248,7 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                         className="min-w-[5rem]!"
                       />
                     </Form.Item>
+
                     <Form.Item
                       name={["outputs", index, "UomCode"]}
                       className="w-[80px]"

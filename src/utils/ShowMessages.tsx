@@ -47,13 +47,14 @@ export const showSuccessMessage = (message: string) => {
             animationData={successCheckAnimation}
             play={true}
             loop={false}
-            speed={1}
+            speed={1.5}
             style={{ width: 80, height: 80 }}
           />
         </div>
         <p className="text-green-600 text-lg font-semibold mt-3">SUCCESS!</p>
       </div>
     ),
+
     content: <p className="text-center text-gray-700">{message}</p>,
     okText: "Ok",
     okButtonProps: {
