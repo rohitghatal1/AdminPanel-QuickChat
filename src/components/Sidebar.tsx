@@ -16,37 +16,13 @@ const Sidebar: React.FC = () => {
     {
       icon: <PiUsersThree />,
       label: "Users",
-      link: "/users",
+      link: "/mainscreen/users",
     },
 
     {
       icon: <TiMessages />,
       label: "Messages",
-      link: "/messages",
-    },
-
-    {
-      icon: <PiUsersThree />,
-      label: "Users",
-      link: "/users",
-    },
-
-    {
-      icon: <TiMessages />,
-      label: "Messages",
-      link: "/messages",
-    },
-
-    {
-      icon: <PiUsersThree />,
-      label: "Users",
-      link: "/users",
-    },
-
-    {
-      icon: <TiMessages />,
-      label: "Messages",
-      link: "/messages",
+      link: "/mainscreen/messages",
     },
 
     {
@@ -57,7 +33,7 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div className="w-full">
       <div>
         <img src={QuickChatLogo} alt="" />
       </div>
