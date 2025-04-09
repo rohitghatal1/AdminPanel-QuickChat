@@ -12,8 +12,8 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="mainscreen/*">
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="users" element={<Users />} />
+          <Route path="messages" element={<Messages />} />
         </Route>
       </Routes>
     </>

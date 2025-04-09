@@ -8,7 +8,8 @@ export default function Users() {
   const getAllUsers = async () => {
     try {
       const response = await axiosInstance.get("api/users/getUsers");
-      setAllUsers(response?.data?.data);
+      setAllUsers(response?.data);
+      console.log("fetched users: ", response?.data);
     } catch (err: any) {
       console.log(err);
     }
@@ -20,27 +21,21 @@ export default function Users() {
 
   const columns = [
     {
-      title: "SN",
-      key: "sn",
-      render: () => <span>1</span>,
-    },
-
-    {
       title: "Name",
-      dataIndex: "Name",
-      key: "Name",
+      dataIndex: "name",
+      key: "name",
     },
 
     {
-      title: "Address",
-      dataIndex: "Address",
-      key: "Address",
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
     },
 
     {
       title: "Contact",
-      dataIndex: "Contact",
-      key: "Contact",
+      dataIndex: "number",
+      key: "number",
     },
   ];
 
