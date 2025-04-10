@@ -22,10 +22,6 @@ const Messages: React.FC = () => {
 
   const columns = [
     {
-      title: "SN",
-      key: "sn",
-    },
-    {
       title: "Date",
       dataIndex: "Date",
       key: "Date",
@@ -47,7 +43,11 @@ const Messages: React.FC = () => {
       <h2 className="text-lg font-semibold text-gray-700 py-2">Messages:</h2>
       <div className="mt-4">
         <div className="h-[88vh] overflow-y-auto">
-          <Table columns={columns} />
+          <Table
+            columns={columns}
+            dataSource={allMessages}
+            pagination={false}
+          />
         </div>
       </div>
     </div>
