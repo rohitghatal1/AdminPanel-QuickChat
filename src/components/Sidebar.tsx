@@ -40,7 +40,15 @@ const Sidebar: React.FC = () => {
 
       <aside>
         {SidebarItems.map((item: any, index: number) => (
-          <NavLink to={item?.link} key={index}>
+          <NavLink
+            to={item?.link}
+            key={index}
+            className={({ isActive }) =>
+              `bg-blue-200 text to-blue-700 hover:bg-blue-400 ${
+                isActive && "bg-blue-500 font-semibold"
+              }`
+            }
+          >
             {item.label}
           </NavLink>
         ))}

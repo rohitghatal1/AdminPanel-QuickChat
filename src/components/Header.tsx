@@ -5,7 +5,7 @@ import { MdSupportAgent } from "react-icons/md";
 
 const Header: React.FC = () => {
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("quickChatAccessToken");
     window.location.href = "/";
   };
 

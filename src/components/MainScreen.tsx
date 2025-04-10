@@ -10,6 +10,7 @@ export default function MainScreen() {
         <div className="min-w-[250px] px-2 py-4 rounded-lg bg-gray-400">
           <Sidebar />
         </div>
+
         <div className="rounded-lg">
           <div className="h-[50px] py-2">
             <Header />
