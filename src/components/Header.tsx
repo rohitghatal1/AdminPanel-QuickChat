@@ -6,7 +6,6 @@ import { MdSupportAgent } from "react-icons/md";
 const Header: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("quickChatAccessToken");
-    window.location.href = "/";
   };
 
   const popoverContent = (
@@ -20,7 +19,9 @@ const Header: React.FC = () => {
             onOk: handleLogout,
           });
         }}
-      ></p>
+      >
+        <CiLogout /> Log Out
+      </p>
     </div>
   );
 
@@ -54,13 +55,7 @@ const Header: React.FC = () => {
             </i>
           }
 
-          <Popconfirm
-            title={popoverContent}
-            trigger="click"
-            onConfirm={() => {
-              localStorage.removeItem("quickChatAccessToken");
-            }}
-          >
+          <Popconfirm title={popoverContent} trigger="click">
             <Button danger>
               {" "}
               <CiLogout /> Log out
