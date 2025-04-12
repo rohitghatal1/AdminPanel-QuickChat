@@ -54,7 +54,13 @@ const Header: React.FC = () => {
             </i>
           }
 
-          <Popconfirm title={popoverContent} trigger="click">
+          <Popconfirm
+            title={popoverContent}
+            trigger="click"
+            onConfirm={() => {
+              localStorage.removeItem("quickChatAccessToken");
+            }}
+          >
             <Button danger>
               {" "}
               <CiLogout /> Log out

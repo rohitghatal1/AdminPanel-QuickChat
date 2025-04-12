@@ -33,12 +33,12 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <div>
         <img src={QuickChatLogo} alt="" />
       </div>
 
-      <aside>
+      <aside className="mt-4">
         {SidebarItems.map((item: any, index: number) => (
           <NavLink
             to={item?.link}

@@ -7,7 +7,7 @@ export default function MainScreen() {
     <div>
       <h2>Main Screen</h2>
       <div className="flex gap-4">
-        <div className="min-w-[250px] px-2 py-4 rounded-lg bg-gray-400">
+        <div className="min-w-[250px] h-screen px-2 py-4 rounded-lg bg-gray-400">
           <Sidebar />
         </div>
 
