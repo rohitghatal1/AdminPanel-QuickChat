@@ -2,6 +2,7 @@ import { Table } from "antd";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { showErrorMessage } from "../../utils/ShowMessages";
+import moment from "moment";
 
 const Messages: React.FC = () => {
   const [allMessages, setAllMessages] = useState<any>([]);
@@ -25,6 +26,7 @@ const Messages: React.FC = () => {
       title: "Date",
       dataIndex: "Date",
       key: "Date",
+      render: (text: any) => <span>{moment(text).format("MMM DD, YYYY")}</span>,
     },
     {
       title: "From",

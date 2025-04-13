@@ -34,8 +34,8 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <div>
-        <img src={QuickChatLogo} alt="" />
+      <div className="px-2 py-1">
+        <img src={QuickChatLogo} alt="appLogo" />
       </div>
 
       <aside className="mt-4">
