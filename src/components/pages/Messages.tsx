@@ -9,7 +9,7 @@ const Messages: React.FC = () => {
 
   const fetchAllMessages = async () => {
     try {
-      const response = await axiosInstance.get("/messages");
+      const response = await axiosInstance.get("/messages/getMessages");
       setAllMessages(response?.data?.data);
     } catch (err: any) {
       console.log(err);
@@ -28,11 +28,13 @@ const Messages: React.FC = () => {
       key: "Date",
       render: (text: any) => <span>{moment(text).format("MMM DD, YYYY")}</span>,
     },
+
     {
       title: "From",
       dataIndex: "From",
       key: "From",
     },
+
     {
       title: "To",
       dataIndex: "To",
@@ -43,6 +45,7 @@ const Messages: React.FC = () => {
   return (
     <div>
       <h2 className="text-lg font-semibold text-gray-700 py-2">Messages:</h2>
+
       <div className="mt-4">
         <div className="h-[88vh] overflow-y-auto">
           <Table

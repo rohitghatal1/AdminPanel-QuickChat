@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <div className="px-2 py-1">
+      <div className="px-2 py-2">
         <img src={QuickChatLogo} alt="appLogo" />
       </div>
 
