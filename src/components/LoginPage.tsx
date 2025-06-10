@@ -22,7 +22,7 @@ const LoginPage: React.FC = () => {
     <div className="flex items-center justify-center h-screen">
       <div className="w-[30rem]">
         <div className="w-full flex items-center justify-center py-1">
-          <img src={Logo} alt="Quickchat" className="w-40 h-16" />
+          <img src={Logo} alt="Quickchat" className="w-44 h-20" />
         </div>
 
         <div className="rounded-md border border-gray-300 p-4 shadow-md">
@@ -40,7 +40,11 @@ const LoginPage: React.FC = () => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" onClick={() => adminLoginForm.submit()}>
+              <Button
+                size="large"
+                type="primary"
+                onClick={() => adminLoginForm.submit()}
+              >
                 Login
               </Button>
             </Form.Item>
