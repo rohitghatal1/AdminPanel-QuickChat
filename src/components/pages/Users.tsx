@@ -40,15 +40,17 @@ export default function Users() {
   ];
 
   return (
-    <div>
-      <h2>Users</h2>
+    <div className="bg-white px-4 py-2">
+      <h2 className="font-semibold text-lg">Users</h2>
       <div className="px-4">
-        <h2>All users: </h2>
-        <div>
-          <p>All registered users:</p>
-        </div>
+        <h2 className="text-lg py-2 font-semibold">All users: </h2>
         <div className="rounded-lg">
-          <Table pagination={false} columns={columns} dataSource={allUsers} />
+          <Table
+            pagination={false}
+            columns={columns}
+            dataSource={allUsers}
+            scroll={{ y: "80vh" }}
+          />
         </div>
       </div>
     </div>
