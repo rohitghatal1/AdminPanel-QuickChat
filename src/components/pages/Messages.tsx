@@ -43,7 +43,7 @@ const Messages: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-white text-left py-2 px-4 rounded-md">
       <h2 className="text-lg font-semibold text-gray-700 py-2">Messages:</h2>
 
       <div className="mt-4">
@@ -52,6 +52,7 @@ const Messages: React.FC = () => {
             columns={columns}
             dataSource={allMessages}
             pagination={false}
+            scroll={{ y: "80vh" }}
           />
         </div>
       </div>
