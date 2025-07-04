@@ -14,9 +14,8 @@ import {
 } from "antd";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import { showErrorMessage } from "../../utils/showErrorMessage";
-import NepaliCalendarView from "./pageComponents/NepaliCalendarView";
 import axiosInstance from "../utils/axiosInstance";
+import { showErrorMessage } from "../utils/ShowMessages";
 
 const { Option } = Select;
 
@@ -120,7 +119,7 @@ const NepaliCalendar: React.FC = () => {
       </div>
 
       <Spin spinning={loading}>
-        <NepaliCalendarView />
+        <NepaliCalendar />
       </Spin>
 
       <Drawer
