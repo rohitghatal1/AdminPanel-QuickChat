@@ -1,8 +1,9 @@
-import { Table } from "antd";
+import { Modal, Table } from "antd";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { showErrorMessage } from "../../utils/ShowMessages";
 import moment from "moment";
+import { FaTrash } from "react-icons/fa";
 
 const Messages: React.FC = () => {
   const [allMessages, setAllMessages] = useState<any>([]);
@@ -39,6 +40,32 @@ const Messages: React.FC = () => {
       title: "To",
       dataIndex: "To",
       key: "To",
+    },
+
+    {
+      title: "Action",
+      key: "Action",
+      render: (_: any, record: any) => (
+        <div className="flex items-center gap-1">
+          <FaTrash
+            onClick={() =>
+              Modal.confirm({
+                title: "Confirm Logout",
+                content: "Are you sure, you want to log out ?",
+                onOk: async () => {
+                  try {
+                    await axiosInstance.delete(
+                      `/admin/deleteMessage/${record?._id}`
+                    );
+                  } catch (err: any) {
+                    showErrorMessage(err);
+                  }
+                },
+              })
+            }
+          />
+        </div>
+      ),
     },
   ];
 
