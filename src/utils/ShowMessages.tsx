@@ -1,39 +1,7 @@
-import { message as antMessage, Modal } from "antd";
-import { MdError, MdCheckCircle } from "react-icons/md";
+import { Modal } from "antd";
+import { MdError } from "react-icons/md";
 import Lottie from "react-lottie-player";
 import successCheckAnimation from "../assets/photos/successAnimation.json";
-
-const ensureString = (content: any): string => {
-  if (content === null || content === undefined) {
-    return "Operation completed";
-  }
-
-  if (typeof content === "string") {
-    return content;
-  }
-
-  if (content instanceof Error) {
-    return content.message || "An error occurred";
-  }
-
-  if (typeof content === "object") {
-    if (typeof content.message === "string") {
-      return content.message;
-    }
-
-    try {
-      return JSON.stringify(content);
-    } catch {
-      return "Operation completed";
-    }
-  }
-
-  try {
-    return String(content);
-  } catch {
-    return "Operation completed";
-  }
-};
 
 export const showSuccessMessage = (message: string) => {
   Modal.success({

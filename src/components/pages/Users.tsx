@@ -48,12 +48,12 @@ export default function Users() {
           <FaTrash
             onClick={() =>
               Modal.confirm({
-                title: "Confirm Logout",
-                content: "Are you sure, you want to log out ?",
+                title: "Confirm Delete",
+                content: "Are you sure, you want to delete this user ?",
                 onOk: async () => {
                   try {
                     await axiosInstance.delete(
-                      `/admin/deleteMessage/${record?._id}`
+                      `/admin/deleteUser/${record?._id}`
                     );
                   } catch (err: any) {
                     showErrorMessage(err);

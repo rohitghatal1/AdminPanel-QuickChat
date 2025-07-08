@@ -50,8 +50,8 @@ const Messages: React.FC = () => {
           <FaTrash
             onClick={() =>
               Modal.confirm({
-                title: "Confirm Logout",
-                content: "Are you sure, you want to log out ?",
+                title: "Confirm delete",
+                content: "Are you sure, you want to delete this message ?",
                 onOk: async () => {
                   try {
                     await axiosInstance.delete(
