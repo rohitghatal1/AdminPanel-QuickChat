@@ -39,6 +39,11 @@ export default function Users() {
       dataIndex: "number",
       key: "number",
     },
+    {
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
+    },
 
     {
       title: "Action",

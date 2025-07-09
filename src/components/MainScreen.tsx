@@ -15,7 +15,12 @@ export default function MainScreen() {
         <div className="min-w-[250px] h-screen px-2 py-4 rounded-lg bg-gray-400 relative">
           <Sidebar />
 
-          <div className="absolute top-0 right-0 border border-gray-200 rounded-md p-2 text-teal-400">
+          <div
+            className={`absolute top-0 right-0 border border-gray-200 rounded-md p-2 text-teal-400 ${
+              smallSidebar ? "rotate-180" : "rotate-0"
+            }`}
+            onClick={() => setSmallSidebar(true)}
+          >
             <MdKeyboardDoubleArrowLeft />
           </div>
         </div>
