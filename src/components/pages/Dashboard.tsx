@@ -7,7 +7,9 @@ const Dashboard: React.FC = () => {
       <div className="w-[70%] h-full ml-4">
         <div className="flex justify-between items-center border p-6 rounded-xl">
           <div>
-            <h1 className="text-3xl font-bold text-blue-800">Dashboard</h1>
+            <h1 className="text-3xl font-bold text-blue-800">
+              Quickchat - Dashboard
+            </h1>
             <p className="text-sm text-blue-600">
               {moment().format("dddd, DD MMMM YYYY")}
             </p>

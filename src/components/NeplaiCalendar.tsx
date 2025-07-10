@@ -75,6 +75,7 @@ const NepaliCalendar: React.FC = () => {
 
   const handleFormSubmit = async (values: any) => {
     setFormSubmitting(true);
+
     try {
       const payload = {
         ADYear: values.adYear,
@@ -95,6 +96,7 @@ const NepaliCalendar: React.FC = () => {
       await axiosInstance.post("/nepalidate/dates", payload);
       message.success("Calendar data saved successfully!");
       setIsAddCalendarDrawerOpen(false);
+
       fetchCalendarData();
     } catch (err: any) {
       showErrorMessage(err?.response?.data?.message);
