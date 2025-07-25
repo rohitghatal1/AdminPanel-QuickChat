@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://192.168.18.31:5000/api",
+  baseURL: "http://103.250.132.138.168.18.31:5000/api",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
@@ -13,7 +13,6 @@ axiosInstance.interceptors.request.use((config) => {
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
-  // Check if the request URL has `export=true`
   if (config.url && config.url.includes("export=true")) {
     config.responseType = "blob";
   }
@@ -28,8 +27,10 @@ axiosInstance.interceptors.response.use(
       const fileName = contentDisposition
         ? contentDisposition.split("filename=")[1]
         : "data.xlsx";
+
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
+
       link.href = url;
       link.setAttribute("download", fileName.replace(/"/g, ""));
       document.body.appendChild(link);
@@ -38,6 +39,7 @@ axiosInstance.interceptors.response.use(
     }
     return response;
   },
+  
   (error) => {
     if (error.response.status === 401) {
       if (localStorage.getItem("accessToken")) {
