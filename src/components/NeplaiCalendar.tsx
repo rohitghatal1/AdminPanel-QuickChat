@@ -60,9 +60,8 @@ const NepaliCalendar: React.FC = () => {
     setLoading(true);
     try {
       const response = await axiosInstance.get("/nepalidate/dates");
-      setCalendarData(response.data.data || []);
+      setCalendarData(response.data.data);
     } catch (error) {
-      message.error("Failed to fetch calendar data");
       console.error(error);
     } finally {
       setLoading(false);
@@ -110,7 +109,10 @@ const NepaliCalendar: React.FC = () => {
   return (
     <div className="p-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="font-semibold text-lg text-gray-800">Biz Calendar</h2>
+        <h2 className="font-semibold text-lg text-gray-800">
+          Neepali Calendar
+        </h2>
+
         <Button
           className="flex items-center gap-1"
           type="primary"
@@ -176,6 +178,7 @@ const NepaliCalendar: React.FC = () => {
                 </Select>
               </Form.Item>
             </Col>
+
             <Col span={8}>
               <Form.Item
                 name="bsYear"
@@ -198,6 +201,7 @@ const NepaliCalendar: React.FC = () => {
                 </Select>
               </Form.Item>
             </Col>
+
             <Col span={8}>
               <Form.Item
                 name="fiscalYear"
@@ -223,6 +227,7 @@ const NepaliCalendar: React.FC = () => {
                 <DatePicker style={{ width: "100%" }} format="YYYY-MM-DD" />
               </Form.Item>
             </Col>
+
             <Col span={12}>
               <Form.Item
                 name="fiscalYearEnd"
