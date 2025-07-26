@@ -2,10 +2,14 @@ import { Avatar, Button, Modal, Popconfirm, Popover } from "antd";
 import { CiLogout } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 const Header: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("quickChatAccessToken");
+    navigate("/");
   };
 
   const popoverContent = (
