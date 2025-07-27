@@ -1,6 +1,8 @@
 import { Select, Input, Button, Form, InputNumber } from "antd";
 import { MdDelete } from "react-icons/md";
+
 const { Option } = Select;
+
 interface OutputComponentProps {
   outputItems: any;
   warehouses?: any;
@@ -130,6 +132,7 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                         const singleItemData = itemsData?.find(
                           (item: any) => item?.ItemCode === value
                         );
+
                         const currentDocumentLines =
                           form.getFieldValue("outputs") || [];
                         const updatedDocumentLines = currentDocumentLines.map(
@@ -183,6 +186,7 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                                 }
                               : item
                         );
+
                         form.setFieldsValue({ outputs: updatedDocumentLines });
                       }}
                       options={itemsData?.map((item: any) => ({
