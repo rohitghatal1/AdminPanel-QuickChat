@@ -3,9 +3,7 @@
 import {
   Button,
   Checkbox,
-  Divider,
   Input,
-  message,
   Modal,
   Pagination,
   Radio,
@@ -14,12 +12,10 @@ import {
   TableProps,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import { BsFileExcel } from "react-icons/bs";
 import { CiFilter } from "react-icons/ci";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { RiFileExcelFill } from "react-icons/ri";
 import { BiReset } from "react-icons/bi";
-import { isSAP } from "../utils/checkSoftwareType";
 interface IPageLayout {
   disable_export_button?: boolean;
   displayFilter?: any;
@@ -133,32 +129,6 @@ const PageLayout = ({
   const [isPreparing, setIsPreparing] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [intervalId, setIntervalId] = useState<any>(null);
-
-  const handleExport = () => {
-    // if (isSAP()) {
-    exportData();
-    return;
-    // }
-    const delay = Math.floor(Math.random() * (180 - 120 + 1) + 120); // Random time between 2-3 minutes
-    setCountdown(delay);
-    setIsPreparing(true);
-    setIsReady(false);
-    setIsModalVisible(true);
-
-    const id = setInterval(() => {
-      setCountdown((prev: any) => {
-        if (prev <= 1) {
-          clearInterval(id);
-          setIsPreparing(false);
-          setIsReady(true);
-          return null;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    setIntervalId(id);
-  };
 
   const handleCancel = () => {
     clearInterval(intervalId);
@@ -351,17 +321,6 @@ const PageLayout = ({
           <div className="flex items-center flex-1 justify-end space-x-3">
             {!disable_export_button && (
               <>
-                <Button
-                  type="default"
-                  onClick={() => {
-                    handleExport();
-                    // exportData();
-                  }}
-                  className="font-medium shadow-sm flex items-center gap-2"
-                >
-                  <RiFileExcelFill className="text-green-500" /> Export
-                </Button>
-
                 <Modal
                   title="Preparing Export"
                   open={isModalVisible}
