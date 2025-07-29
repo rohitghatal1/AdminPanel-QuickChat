@@ -1,5 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Button,
   Checkbox,
@@ -14,7 +12,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
-import { RiFileExcelFill } from "react-icons/ri";
 import { BiReset } from "react-icons/bi";
 interface IPageLayout {
   disable_export_button?: boolean;
@@ -32,6 +29,7 @@ interface IPageLayout {
     search: string;
     searchData: any;
   };
+
   filters?: {
     multiple?: boolean;
     title: string;
@@ -109,7 +107,6 @@ const PageLayout = ({
     }));
   };
 
-  // rowSelection object indicates the need for row selection
   const rowSelection: TableProps<any>["rowSelection"] = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
       console.log(
@@ -118,8 +115,9 @@ const PageLayout = ({
         selectedRows
       );
     },
+
     getCheckboxProps: (record: any) => ({
-      disabled: record.name === "Disabled User", // Column configuration not to be checked
+      disabled: record.name === "Disabled User",
       name: record.name,
     }),
   };
