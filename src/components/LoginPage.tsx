@@ -26,6 +26,8 @@ const LoginPage: React.FC = () => {
         </div>
 
         <div className="rounded-md border border-gray-300 p-4 shadow-md">
+          <h2>Login Form</h2>
+
           <Form
             layout="vertical"
             form={adminLoginForm}
