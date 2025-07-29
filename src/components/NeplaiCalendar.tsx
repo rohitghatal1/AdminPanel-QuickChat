@@ -12,6 +12,7 @@ import {
   Spin,
   Table,
 } from "antd";
+
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import axiosInstance from "../utils/axiosInstance";
@@ -271,6 +272,7 @@ const NepaliCalendar: React.FC = () => {
                         </Form.Item>
                       ),
                     },
+
                     {
                       title: "AD Month",
                       render: (_, __, index) => (
@@ -292,6 +294,7 @@ const NepaliCalendar: React.FC = () => {
                         </Form.Item>
                       ),
                     },
+
                     {
                       title: "BS End Date",
                       render: (_, __, index) => (
@@ -304,6 +307,7 @@ const NepaliCalendar: React.FC = () => {
                         </Form.Item>
                       ),
                     },
+
                     {
                       title: "AD Start Date",
                       render: (_, __, index) => (

@@ -158,7 +158,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                   </Form.Item>
                 </td>
 
-                {/* Item Name Column */}
                 <td style={{ minWidth: "260px" }}>
                   <Form.Item
                     name={["outputs", index, "ItemName"]}
@@ -197,7 +196,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                   </Form.Item>
                 </td>
 
-                {/* GL Account Column */}
                 <td style={{ minWidth: "260px" }}>
                   <Form.Item
                     name={["outputs", index, "AccountCode"]}
@@ -214,7 +212,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                   </Form.Item>
                 </td>
 
-                {/* Warehouse Column */}
                 <td style={{ minWidth: "260px" }}>
                   <Form.Item
                     name={["outputs", index, "WhsCode"]}
@@ -235,7 +232,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                   </Form.Item>
                 </td>
 
-                {/* Base Quantity Column */}
                 <td style={{ minWidth: "200px" }}>
                   <div className="flex gap-2">
                     <Form.Item
@@ -247,7 +243,6 @@ const OutputComponent: React.FC<OutputComponentProps> = ({
                         type="number"
                         onBlur={() => {
                           calculateTotal(index);
-                          // updateInputQuantities(index);
                         }}
                         className="min-w-[5rem]!"
                       />
