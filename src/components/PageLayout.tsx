@@ -7,7 +7,6 @@ import {
   Radio,
   Spin,
   Table,
-  TableProps,
 } from "antd";
 import React, { useEffect, useState } from "react";
 import { CiFilter } from "react-icons/ci";
@@ -48,7 +47,6 @@ const PageLayout = ({
   children,
   total_records,
   displayFilter,
-  showChildren = false,
   search,
   loading,
   columns,
@@ -105,21 +103,6 @@ const PageLayout = ({
       ...prev,
       [index]: !prev[index],
     }));
-  };
-
-  const rowSelection: TableProps<any>["rowSelection"] = {
-    onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-      console.log(
-        `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
-        selectedRows
-      );
-    },
-
-    getCheckboxProps: (record: any) => ({
-      disabled: record.name === "Disabled User",
-      name: record.name,
-    }),
   };
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -193,7 +176,6 @@ const PageLayout = ({
                     ? filterValues[el.filterString].split(",")
                     : [];
 
-                  const isChecked = currentValues.includes(filter.value);
                   const isAllOption = filter.value === "";
 
                   return (
