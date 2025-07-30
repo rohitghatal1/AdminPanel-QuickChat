@@ -8,6 +8,7 @@ import {
   Spin,
   Table,
 } from "antd";
+
 import React, { useEffect, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
@@ -80,9 +81,11 @@ const PageLayout = ({
     acc[index] = true;
     return acc;
   }, {});
+
   const [filterValues, setFilterValues] = useState<{ [key: string]: string }>(
     {}
   );
+
   const [openFilters, setOpenFilters] = useState<{ [key: number]: boolean }>(
     initialFiltersState
   );
@@ -121,8 +124,8 @@ const PageLayout = ({
   };
 
   const handleDownload = () => {
-    exportData(); // Trigger file download
-    setIsModalVisible(false); // Close modal after download
+    exportData();
+    setIsModalVisible(false);
   };
 
   useEffect(() => {
@@ -267,6 +270,7 @@ const PageLayout = ({
             </React.Fragment>
           ))}
       </div>
+
       <div
         className={
           showFilters && filters && filters?.length > 0
