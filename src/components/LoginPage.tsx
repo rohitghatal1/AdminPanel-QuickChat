@@ -12,6 +12,7 @@ const LoginPage: React.FC = () => {
       const response = await axiosInstance.post("/api/admin/login", values);
       message.success("Logged in successfully!");
       navigate("mainscreen/dashboard");
+
       localStorage.setItem("quickChatAccessToken", response?.data?.accessToken);
     } catch (err: any) {
       console.log(err);
@@ -34,11 +35,11 @@ const LoginPage: React.FC = () => {
             onFinish={submitLoginForm}
           >
             <Form.Item label="Number" name="number">
-              <Input />
+              <Input placeholder="number" />
             </Form.Item>
 
             <Form.Item label="Password" name="password">
-              <Input.Password />
+              <Input.Password placeholder="password" />
             </Form.Item>
 
             <Form.Item>

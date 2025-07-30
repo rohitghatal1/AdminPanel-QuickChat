@@ -51,12 +51,6 @@ const Header: React.FC = () => {
             </Avatar>
           </Popover>
 
-          {
-            <i className="text-4xl text-gray-600 cursor-pointer">
-              <MdSupportAgent />
-            </i>
-          }
-
           <Popconfirm title={popoverContent} trigger="click">
             <Button danger>
               {" "}
