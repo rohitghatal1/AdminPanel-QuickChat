@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+// import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
@@ -26,9 +26,9 @@ export default function MainScreen() {
         </div>
 
         <div className="rounded-lg">
-          <div className="h-[50px] py-2">
+          {/* <div className="h-[50px] py-2">
             <Header />
-          </div>
+          </div> */}
 
           <div className="h-[calc(100%-50px)]">
             <Outlet />
