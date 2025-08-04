@@ -10,9 +10,10 @@ const LoginPage: React.FC = () => {
 
   const submitLoginForm = async (values: any) => {
     try {
-      const response = await axiosInstance.post("/admin/login", values);
+      const response = await axiosInstance.post("/login", values);
       message.success("Logged in successfully!");
       console.log(response);
+      localStorage.setItem("quickChatAminToken", response?.data?.token);
       navigate("mainscreen/dashboard");
 
       localStorage.setItem("quickChatAccessToken", response?.data?.token);

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://192.168.18.17:5000/api",
+  baseURL: "http://192.168.18.17:5000/api/admin",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem("quickChatAccessToken");
+  const accessToken = localStorage.getItem("quickChatAminToken");
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
@@ -38,12 +38,12 @@ axiosInstance.interceptors.response.use(
   },
 
   (error) => {
-    if (error.response.status === 401) {
-      if (localStorage.getItem("quickChatAccessToken")) {
-        localStorage.removeItem("quickChatAccessToken");
-        window.location.href = "/login";
-      }
-    }
+    // if (error.response.status === 401) {
+    //   if (localStorage.getItem("quickChatAminToken")) {
+    //     localStorage.removeItem("quickChatAminToken");
+    //     window.location.href = "/";
+    //   }
+    // }
     return Promise.reject(error);
   }
 );
