@@ -10,11 +10,12 @@ const LoginPage: React.FC = () => {
 
   const submitLoginForm = async (values: any) => {
     try {
-      const response = await axiosInstance.post("/api/admin/login", values);
+      const response = await axiosInstance.post("/admin/login", values);
       message.success("Logged in successfully!");
+      console.log(response);
       navigate("mainscreen/dashboard");
 
-      localStorage.setItem("quickChatAccessToken", response?.data?.accessToken);
+      localStorage.setItem("quickChatAccessToken", response?.data?.token);
     } catch (err: any) {
       console.log(err);
       message.error("Login failed. Please check your credentials.");

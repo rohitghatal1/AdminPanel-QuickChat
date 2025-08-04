@@ -9,12 +9,9 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = localStorage.getItem("quickChatAccessToken");
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
-  }
-  if (config.url && config.url.includes("export=true")) {
-    config.responseType = "blob";
   }
   return config;
 });
@@ -39,11 +36,11 @@ axiosInstance.interceptors.response.use(
     }
     return response;
   },
-  
+
   (error) => {
     if (error.response.status === 401) {
-      if (localStorage.getItem("accessToken")) {
-        localStorage.removeItem("accessToken");
+      if (localStorage.getItem("quickChatAccessToken")) {
+        localStorage.removeItem("quickChatAccessToken");
         window.location.href = "/login";
       }
     }
