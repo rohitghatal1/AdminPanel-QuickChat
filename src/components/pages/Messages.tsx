@@ -166,7 +166,7 @@ const Messages: React.FC = () => {
       <Card className="shadow-sm">
         <div className="mb-6 space-y-4">
           <div className="flex flex-col lg:flex-row gap-4">
-            <div className="flex-1">
+            {/* <div className="flex-1">
               <Search
                 placeholder="Search messages by sender, recipient, or content..."
                 allowClear
@@ -175,7 +175,7 @@ const Messages: React.FC = () => {
                 onSearch={handleSearch}
                 onChange={(e) => handleSearch(e.target.value)}
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
